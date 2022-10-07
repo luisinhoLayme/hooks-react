@@ -1,21 +1,21 @@
-import React, { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 const useFetch = ( url ) => {
 
-  const isMounted = useRef(true);
-  const [state, setState] = React.useState({ data: null, loading: true, error: null });
+  const isMounted = useRef(true)
+  const [ state, setState ] = useState({ data: null, loading: true, error: null })
 
-  React.useEffect(() => {
+  useEffect(() => {
 
     return () => {
-      isMounted.current = false;
+      isMounted.current = false
     }
 
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
 
-    setState({ data: null, loading: true, error: null });
+    setState({ data: null, loading: true, error: null })
 
     fetch( url )
       .then( resp => resp.json() )
@@ -38,10 +38,10 @@ const useFetch = ( url ) => {
         })
       })
 
-  }, [url]);
+  }, [url])
 
-  return state;
+  return state
 
 }
 
-export { useFetch };
+export { useFetch }
