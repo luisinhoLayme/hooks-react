@@ -8,5 +8,5 @@ const initialForm = {
   email: ''
 }
 
-const [ formValues, handleInputChange, reset ] = useForm(initialForm)
+const [ formState, onInputChange, onResetForm ] = useForm(initialForm)
 ```
